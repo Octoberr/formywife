@@ -8,7 +8,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: forbaby
     volumes:
-      - /home/data-upload:/home/data-upload
+      - /home/formywife:/home/formywife
     ports:
       - "8000:8000"
     restart: unless-stopped
