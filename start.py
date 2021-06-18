@@ -26,6 +26,7 @@ async def read_items():
         <body>
             <p>老婆今天穿这套怎么样:</p>
             <img src="./pics/{choose_name}" alt="today wear">
+            <p>老婆真漂亮，爱你哟</p>
         </body>
     </html>
     """
@@ -43,5 +44,5 @@ async def read_items():
 
 
 if __name__ == '__main__':
-    uvicorn.run(app='start:app', host="127.0.0.1",
+    uvicorn.run(app='start:app', host="0.0.0.0",
                 port=8000, reload=True, debug=True)
