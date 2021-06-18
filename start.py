@@ -1,9 +1,19 @@
+from pathlib import Path
+from random import choice
+
 import uvicorn
 from fastapi import FastAPI
-from random import choice
 from fastapi.responses import HTMLResponse, FileResponse
-from pathlib import Path
+from starlette.requests import Request
+from starlette.templating import Jinja2Templates
+
 app = FastAPI()
+templates = Jinja2Templates(directory="templates")
+
+
+@app.get("/forever")
+async def read_item(request: Request):
+    return templates.TemplateResponse("index.html", {'request': request})
 
 
 @app.get("/pics/{pic_name}")
