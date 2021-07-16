@@ -12,3 +12,6 @@ for c in clo.iterdir():
     new_y = 1038
     out = im.resize((new_x, new_y), Image.ANTIALIAS)
     out.save(f"./pants/{c.name}")
+
+
+

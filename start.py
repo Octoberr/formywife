@@ -38,8 +38,7 @@ async def read_items():
     choose_one = choice(list(pics))
     choose_name = choose_one.name
     serial_num = choose_name.split(".")[0]
-    print(serial_num)
-    if serial_num in [39, 40]:
+    if int(serial_num) in [39, 40]:
         pants_num_list = range(53, 56)
         pants_num = choice(pants_num_list)
     elif serial_num == "29":
@@ -59,7 +58,10 @@ async def read_items():
     elif serial_num == "10":
         pants_num = "54"
     else:
-        pants_num = choice(list((file_loc / "pictures" / "pants").iterdir()))
+        choose_path = choice(list((file_loc / "pictures" / "pants").iterdir()))
+        pants_num = choose_path.name
+    if pants_num.endswith(".jpg"):
+        pants_num = pants_num.split(".")[0]
     return f"""
     <html>
         <head>
@@ -67,11 +69,11 @@ async def read_items():
             <title>Honey, you're wearing this today</title>
         </head>
         <body>
-            <p>老婆今天穿这件衣服哦:</p>
+            <h1>老婆今天穿这件衣服哦:</h1>
             <img src="./clothes/{choose_name}" alt="today wear">
-            <p>老婆今天穿这条裤子哦:</p>
+            <h1>老婆今天穿这条裤子哦:</h1>
             <img src="./pants/{pants_num}.jpg" alt="today wear">
-            <p>老婆真漂亮，爱你哟</p>
+            <h1>老婆真漂亮，爱你哟</h1>
         </body>
     </html>
     """
@@ -90,9 +92,9 @@ async def read_items():
             <title>Honey, you're wearing this today</title>
         </head>
         <body>
-            <p>老婆今天穿这条裙子哦:</p>
+            <h1>老婆今天穿这条裙子哦:</h1>
             <img src="./dress/{choose_name}" alt="today wear">
-            <p>老婆真漂亮，爱你哟</p>
+            <h1>老婆真漂亮，爱你哟</h1>
         </body>
     </html>
     """
