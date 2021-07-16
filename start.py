@@ -39,8 +39,8 @@ async def read_items():
     choose_name = choose_one.name
     serial_num = choose_name.split(".")[0]
     if int(serial_num) in [39, 40]:
-        pants_num_list = range(53, 56)
-        pants_num = choice(pants_num_list)
+        pants_num_list = range(53, 55)
+        pants_num = str(choice(pants_num_list))
     elif serial_num == "29":
         pants_num = "54"
     elif serial_num in range(26, 29) or serial_num == "30":
